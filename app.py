@@ -37,7 +37,7 @@ init_db()
 
 @app.route('/submit', methods=['POST'])
 def submit_form():
-    data = request.form
+    data = request.json
     conn = sqlite3.connect('submissions.db')
     c = conn.cursor()
     c.execute("""
