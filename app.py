@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, send_file
 import sqlite3
 from flask_cors import CORS
 
@@ -36,6 +36,10 @@ def submit():
         return jsonify({'message': 'Данные успешно сохранены!'})
     except Exception as e:
         return jsonify({'message': f'Ошибка: {str(e)}'}), 500
+
+@app.route('/download-db')
+def download_db():
+    return send_file('submissions.db', as_attachment=True)
 
 if __name__ == '__main__':
     init_db()
