@@ -68,7 +68,7 @@ def submit_form():
     ))
     conn.commit()
     conn.close()
-    return "Спасибо! Данные успешно отправлены."
+    return jsonify({'message': 'Данные успешно сохранены!'})
 
 @app.route('/data')
 def show_data():
